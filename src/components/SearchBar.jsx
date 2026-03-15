@@ -4,19 +4,18 @@ function SearchBar({ searchText, setSearchText, onSearch }) {
     onSearch(searchText);
   };
   return (
-    <form
-      className="flex justify-center max-w-fit gap-2"
-      onSubmit={handleSubmit}
-    >
-      <input
-        placeholder="search api"
-        value={searchText}
-        className="border rounded w-full"
-        onChange={(e) => setSearchText(e.target.value)}
-      />
-      <button type="submit" className="rounded border bg-[#BBCBCB]">
-        Search
-      </button>
+    <form onSubmit={handleSubmit}>
+      <div className="flex justify-between gap-2 w-full">
+        <input
+          placeholder="search api"
+          value={searchText}
+          className="border rounded w-full"
+          onChange={(e) => setSearchText(e.target.value)}
+        />
+        <button type="submit" className="rounded border bg-[#BBCBCB]">
+          Search
+        </button>
+      </div>
     </form>
   );
 }
