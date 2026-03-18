@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import Navbar from "./components/Navbar";
 import SearchBar from "./components/SearchBar";
 import RepoCard from "./components/RepoCard";
+import RepoDetails from "./pages/RepoDetails";
 import { searchRepos } from "./services/githubApi";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   const [searchText, setSearchText] = useState("");
@@ -12,50 +14,59 @@ function App() {
   const [hasSearched, setHasSearched] = useState(false);
 
   const onSearch = async (query) => {
+    setHasSearched(true);
     setLoading(true);
     setError("");
-    setHasSearched(true);
 
     try {
-      const repoData = await searchRepos(query);
-      setRepos(repoData);
+      const data = await searchRepos(query);
+      setRepos(data);
     } catch (err) {
       console.error(err);
-      setError("Something went wrong while fetching repositories.");
+      setError("Failed to fetch repositories.");
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="bg-[#634B66] min-h-screen p-6">
+    <div className="bg-[#634B66] min-h-screen p-6 text-white">
       <Navbar />
 
-      <SearchBar
-        searchText={searchText}
-        setSearchText={setSearchText}
-        onSearch={onSearch}
-      />
+      <Routes>
+        {/* Home Page */}
+        <Route
+          path="/"
+          element={
+            <>
+              <SearchBar
+                searchText={searchText}
+                setSearchText={setSearchText}
+                onSearch={onSearch}
+              />
 
-      {/* Loading state */}
-      {loading && (
-        <p className="text-center mt-6 text-white">Loading repositories...</p>
-      )}
+              {loading && <p className="text-center mt-6">Loading...</p>}
 
-      {/* Error state */}
-      {error && <p className="text-center mt-6 text-red-400">{error}</p>}
+              {error && (
+                <p className="text-center mt-6 text-red-400">{error}</p>
+              )}
 
-      {/* Empty state */}
-      {!loading && repos.length === 0 && hasSearched && !error && (
-        <p className="text-center mt-6 text-white">No repositories found</p>
-      )}
+              {!loading && repos.length === 0 && hasSearched && !error && (
+                <p className="text-center mt-6">No repositories found</p>
+              )}
 
-      {/* Repo list */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
-        {repos.map((repo) => (
-          <RepoCard key={repo.id} repo={repo} />
-        ))}
-      </div>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
+                {repos.map((repo) => (
+                  <RepoCard key={repo.id} repo={repo} />
+                ))}
+              </div>
+            </>
+          }
+        />
+
+        {/* Repo Details Page */}
+        <Route path="/repo/:owner/:repo" element={<RepoDetails />} />
+      </Routes>
     </div>
   );
 }

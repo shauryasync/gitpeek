@@ -9,7 +9,7 @@ function SearchBar({ searchText, setSearchText, onSearch }) {
         <input
           placeholder="search api"
           value={searchText}
-          className="border rounded w-full"
+          className="border rounded w-full text-black"
           onChange={(e) => setSearchText(e.target.value)}
         />
         <button type="submit" className="rounded border bg-[#BBCBCB]">
