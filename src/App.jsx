@@ -3,7 +3,7 @@ import Navbar from "./components/Navbar";
 import SearchBar from "./components/SearchBar";
 import RepoCard from "./components/RepoCard";
 import RepoDetails from "./pages/RepoDetails";
-import { searchRepos } from "./services/githubAPI";
+import { searchRepos } from "./services/githubapi";
 import { Routes, Route } from "react-router-dom";
 import UserProfile from "./pages/UserProfile";
 import Favorites from "./pages/Favorites";
