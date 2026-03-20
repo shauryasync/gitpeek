@@ -5,6 +5,7 @@ import RepoCard from "./components/RepoCard";
 import RepoDetails from "./pages/RepoDetails";
 import { searchRepos } from "./services/githubApi";
 import { Routes, Route } from "react-router-dom";
+import UserProfile from "./pages/UserProfile";
 
 function App() {
   const [searchText, setSearchText] = useState("");
@@ -66,6 +67,7 @@ function App() {
 
         {/* Repo Details Page */}
         <Route path="/repo/:owner/:repo" element={<RepoDetails />} />
+        <Route path="/user/:username" element={<UserProfile />} />
       </Routes>
     </div>
   );

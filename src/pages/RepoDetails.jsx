@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function RepoDetails() {
   const { owner, repo } = useParams();
@@ -34,7 +35,11 @@ function RepoDetails() {
 
   return (
     <div className="mt-8 max-w-2xl mx-auto bg-white text-black p-6 rounded shadow">
-      <h2 className="text-2xl font-bold">{repoData.name}</h2>
+      <Link to={`/user/${repoData.owner.login}`}>
+        <p className="mt-4 text-blue-500 underline cursor-pointer">
+          View {repoData.owner.login}'s Profile
+        </p>
+      </Link>
 
       <p className="mt-2 text-gray-700">{repoData.description}</p>
 
