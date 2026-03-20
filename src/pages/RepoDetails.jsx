@@ -34,14 +34,14 @@ function RepoDetails() {
   }
 
   return (
-    <div className="mt-8 max-w-2xl mx-auto bg-white text-black p-6 rounded shadow">
+    <div className="mt-10 max-w-2xl mx-auto bg-[#161b22] border border-[#30363d] p-6 rounded text-white">
       <Link to={`/user/${repoData.owner.login}`}>
-        <p className="mt-4 text-blue-500 underline cursor-pointer">
+        <p className="inline-block mt-4 text-[#58a6ff] underline ">
           View {repoData.owner.login}'s Profile
         </p>
       </Link>
 
-      <p className="mt-2 text-gray-700">{repoData.description}</p>
+      <p className="mt-2 text-gray-400">{repoData.description}</p>
 
       <div className="flex gap-6 mt-4">
         <span>⭐ {repoData.stargazers_count}</span>
@@ -53,7 +53,7 @@ function RepoDetails() {
         href={repoData.html_url}
         target="_blank"
         rel="noreferrer"
-        className="inline-block mt-4 text-blue-500 underline"
+        className="inline-block mt-4 text-[#58a6ff] underline"
       >
         View on GitHub
       </a>

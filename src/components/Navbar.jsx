@@ -4,7 +4,7 @@ function Navbar() {
   return (
     <nav className="flex justify-between items-center mb-10">
       <Link to="/">
-        <h1 className="text-xl font-bold text-[#58a6ff] hover:opacity-80">
+        <h1 className="text-xl font-bold text-[#8bbef8de] hover:opacity-80">
           GitPeek
         </h1>
       </Link>

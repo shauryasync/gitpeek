@@ -36,7 +36,7 @@ function UserProfile() {
   }
 
   return (
-    <div className="mt-8 max-w-3xl mx-auto bg-white text-black p-6 rounded shadow">
+    <div className="mt-10 max-w-3xl mx-auto bg-[#161b22] border border-[#30363d] p-6 rounded text-white">
       {/* Profile Info */}
       <div className="flex items-center gap-4">
         <img
@@ -47,7 +47,7 @@ function UserProfile() {
 
         <div>
           <h2 className="text-xl font-bold">{userData.login}</h2>
-          <p className="text-gray-600">{userData.bio}</p>
+          <p className="text-gray-400">{userData.bio}</p>
         </div>
       </div>
 
@@ -63,7 +63,10 @@ function UserProfile() {
         <h3 className="text-lg font-semibold mb-2">Repositories</h3>
 
         {repos.map((repo) => (
-          <div key={repo.id} className="border p-3 rounded mb-2">
+          <div
+            key={repo.id}
+            className="border border-[#30363d] p-3 rounded mb-2 bg-[#0d1117]"
+          >
             {repo.name}
           </div>
         ))}
