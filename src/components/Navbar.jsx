@@ -1,12 +1,21 @@
-import React from "react";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
-    <div>
-      <nav className="text-center font-semibold text-2xl text-[#18020C]">
-        GitPeek
-      </nav>
-    </div>
+    <nav className="flex justify-between items-center mb-10">
+      <Link to="/">
+        <h1 className="text-xl font-bold text-[#58a6ff] hover:opacity-80">
+          GitPeek
+        </h1>
+      </Link>
+
+      <Link
+        to="/favorites"
+        className="text-sm bg-[#21262d] px-3 py-1 rounded hover:bg-[#30363d]"
+      >
+        Favorites ⭐
+      </Link>
+    </nav>
   );
 }
 

@@ -6,6 +6,7 @@ import RepoDetails from "./pages/RepoDetails";
 import { searchRepos } from "./services/githubApi";
 import { Routes, Route } from "react-router-dom";
 import UserProfile from "./pages/UserProfile";
+import Favorites from "./pages/Favorites";
 
 function App() {
   const [searchText, setSearchText] = useState("");
@@ -31,7 +32,7 @@ function App() {
   };
 
   return (
-    <div className="bg-[#634B66] min-h-screen p-6 text-white">
+    <div className="min-h-screen bg-gradient-to-b from-[#0d1117] to-[#111827] text-white p-6">
       <Navbar />
 
       <Routes>
@@ -40,23 +41,41 @@ function App() {
           path="/"
           element={
             <>
-              <SearchBar
-                searchText={searchText}
-                setSearchText={setSearchText}
-                onSearch={onSearch}
-              />
+              {/* Hero Section */}
+              <div className="text-center mt-12">
+                <h1 className="text-5xl font-bold tracking-tight">GitPeek</h1>
 
-              {loading && <p className="text-center mt-6">Loading...</p>}
+                <p className="text-gray-400 mt-4">
+                  Search and explore GitHub repositories easily
+                </p>
+              </div>
+
+              {/* Search */}
+              <div className="mt-8 flex justify-center">
+                <SearchBar
+                  searchText={searchText}
+                  setSearchText={setSearchText}
+                  onSearch={onSearch}
+                />
+              </div>
+
+              {/* States */}
+              {loading && (
+                <p className="text-center mt-6 text-gray-300">Loading...</p>
+              )}
 
               {error && (
                 <p className="text-center mt-6 text-red-400">{error}</p>
               )}
 
               {!loading && repos.length === 0 && hasSearched && !error && (
-                <p className="text-center mt-6">No repositories found</p>
+                <p className="text-center mt-6 text-gray-400">
+                  No repositories found
+                </p>
               )}
 
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
+              {/* Repo Grid */}
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
                 {repos.map((repo) => (
                   <RepoCard key={repo.id} repo={repo} />
                 ))}
@@ -68,7 +87,11 @@ function App() {
         {/* Repo Details Page */}
         <Route path="/repo/:owner/:repo" element={<RepoDetails />} />
         <Route path="/user/:username" element={<UserProfile />} />
+        <Route path="/favorites" element={<Favorites />} />
       </Routes>
+      <footer className="mt-16 text-center text-gray-500 text-sm">
+        <p>Built with React • GitPeek</p>
+      </footer>
     </div>
   );
 }
