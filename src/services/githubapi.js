@@ -5,5 +5,7 @@ export const searchRepos = async (query) => {
 
   const data = await res.json();
 
+  if (!data.items) return [];
+
   return data.items;
 };

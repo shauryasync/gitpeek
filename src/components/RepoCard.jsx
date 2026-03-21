@@ -37,7 +37,11 @@ function RepoCard({ repo, isFavoritePage = false }) {
       {/* Conditional Button */}
       {isFavoritePage ? (
         <button
-          onClick={removeRepo}
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            removeRepo();
+          }}
           className="mt-4 bg-red-500 px-3 py-1 rounded text-white"
         >
           Remove

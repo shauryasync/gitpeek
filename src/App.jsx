@@ -16,6 +16,7 @@ function App() {
   const [hasSearched, setHasSearched] = useState(false);
 
   const onSearch = async (query) => {
+    if (!query.trim()) return;
     setHasSearched(true);
     setLoading(true);
     setError("");

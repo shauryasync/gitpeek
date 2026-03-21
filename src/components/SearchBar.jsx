@@ -16,7 +16,7 @@ function SearchBar({ searchText, setSearchText, onSearch }) {
         className="flex-1 p-3 rounded bg-[#0d1117] border border-[#30363d] outline-none"
       />
 
-      <button className="bg-[#238636] px-4 py-2 rounded hover:bg-[#2ea043]">
+      <button className="bg-[#238636] px-4 py-2 rounded hover:bg-[#2ea043] disabled:opacity-50">
         Search
       </button>
     </form>
