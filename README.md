@@ -1,18 +1,18 @@
-GitPeek
+# GitPeek
 
 GitPeek is a React-based web application to search and explore GitHub repositories with a clean and simple UI.
 
-🚀 Live Demo
+## 🚀 Live Demo
 
 https://gitpeek-sigma.vercel.app/
 
-📦 GitHub Repo
+## 📦 GitHub Repo
 
 https://github.com/shauryasync/gitpeek
 
 ---
 
-✨ Features
+## ✨ Features
 
 - Search GitHub repositories using the GitHub API
 - View detailed repository information
@@ -23,7 +23,7 @@ https://github.com/shauryasync/gitpeek
 
 ---
 
-🛠 Tech Stack
+## 🛠 Tech Stack
 
 - React (Vite)
 - Tailwind CSS
@@ -32,7 +32,7 @@ https://github.com/shauryasync/gitpeek
 
 ---
 
-🧠 What I Learned
+## 🧠 What I Learned
 
 - Handling API calls and async data in React
 - Managing UI states (loading, error, empty states)
@@ -42,16 +42,16 @@ https://github.com/shauryasync/gitpeek
 
 ---
 
-⚙️ Installation
-
+## ⚙️ Installation
+```bash
 git clone https://github.com/shauryasync/gitpeek.git
 cd gitpeek
 npm install
 npm run dev
-
+```
 ---
 
-📌 Future Improvements
+## 📌 Future Improvements
 
 - Better state management (Context API)
 - Improved UI animations and feedback
@@ -59,6 +59,6 @@ npm run dev
 
 ---
 
-🤝 Feedback
+## 🤝 Feedback
 
 Open to suggestions and feedback to improve this project.
