@@ -1,24 +1,30 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 function RepoCard({ repo, isFavoritePage = false }) {
+  const [isSaved, setIsSaved] = useState(() => {
+    const stored = JSON.parse(localStorage.getItem("favorites")) || [];
+    return stored.some((item) => item.id === repo.id);
+  });
+
   const saveRepo = () => {
     const stored = JSON.parse(localStorage.getItem("favorites")) || [];
 
-    const exists = stored.find((item) => item.id === repo.id);
-    if (exists) return;
+    if (stored.some((item) => item.id === repo.id)) return;
 
-    stored.push(repo);
-    localStorage.setItem("favorites", JSON.stringify(stored));
+    const updated = [...stored, repo];
+    localStorage.setItem("favorites", JSON.stringify(updated));
+
+    setIsSaved(true); // 🔥 triggers UI update
   };
 
   const removeRepo = () => {
     const stored = JSON.parse(localStorage.getItem("favorites")) || [];
 
     const updated = stored.filter((item) => item.id !== repo.id);
-
     localStorage.setItem("favorites", JSON.stringify(updated));
 
-    window.location.reload();
+    window.location.reload(); // still fine for now
   };
 
   return (
@@ -34,7 +40,6 @@ function RepoCard({ repo, isFavoritePage = false }) {
         </div>
       </Link>
 
-      {/* Conditional Button */}
       {isFavoritePage ? (
         <button
           onClick={(e) => {
@@ -42,16 +47,21 @@ function RepoCard({ repo, isFavoritePage = false }) {
             e.stopPropagation();
             removeRepo();
           }}
-          className="mt-4 bg-red-500 px-3 py-1 rounded text-white"
+          className="mt-4 px-3 py-1 rounded bg-red-600 hover:bg-red-700 text-white text-sm"
         >
           Remove
         </button>
       ) : (
         <button
           onClick={saveRepo}
-          className="mt-4 bg-[#238636] px-3 py-1 rounded text-white"
+          disabled={isSaved}
+          className={`mt-4 px-3 py-1 rounded text-sm transition ${
+            isSaved
+              ? "bg-gray-600 text-gray-300 cursor-not-allowed"
+              : "bg-[#238636] hover:bg-[#2ea043] text-white"
+          }`}
         >
-          Save
+          {isSaved ? "Saved" : "Save"}
         </button>
       )}
     </div>
