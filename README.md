@@ -1,16 +1,64 @@
-# React + Vite
+GitPeek
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+GitPeek is a React-based web application to search and explore GitHub repositories with a clean and simple UI.
 
-Currently, two official plugins are available:
+🚀 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+https://gitpeek-sigma.vercel.app/
 
-## React Compiler
+📦 GitHub Repo
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+https://github.com/shauryasync/gitpeek
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+✨ Features
+
+- Search GitHub repositories using the GitHub API
+- View detailed repository information
+- Explore developer profiles
+- Save and remove favorite repositories
+- Persistent data using localStorage
+- Clean dark-themed UI inspired by GitHub
+
+---
+
+🛠 Tech Stack
+
+- React (Vite)
+- Tailwind CSS
+- React Router
+- GitHub REST API
+
+---
+
+🧠 What I Learned
+
+- Handling API calls and async data in React
+- Managing UI states (loading, error, empty states)
+- Implementing client-side routing using React Router
+- Using localStorage for persistent user data
+- Improving UX with conditional rendering and state-driven UI
+
+---
+
+⚙️ Installation
+
+git clone https://github.com/shauryasync/gitpeek.git
+cd gitpeek
+npm install
+npm run dev
+
+---
+
+📌 Future Improvements
+
+- Better state management (Context API)
+- Improved UI animations and feedback
+- Pagination for search results
+
+---
+
+🤝 Feedback
+
+Open to suggestions and feedback to improve this project.
